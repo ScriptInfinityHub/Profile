@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile กูเอง</title>
+  <link rel="icon" href="Image/Profile2.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <span class="text-xl font-bold text-white">PROFILE</span>
+    <div class="flex space-x-8">
+      <span class="nav-link cursor-pointer" data-target="home">หน้าหลัก</span>
+      <span class="nav-link cursor-pointer" data-target="Game">Game</span>
+      <span class="nav-link cursor-pointer" data-target="contact">Discord</span>
+    </div>
+  </div>
+</nav>
+
+  <section id="home" class="pt-24 px-6 min-h-screen text-white">
+    <img src="Image/Profile.png" alt="Profile Image" class="Image" />
+    <h1 class="text-4xl font-bold mb-4">Welcome to my profile</h1>
+    <p>เช็คระบบการเขียนโค้ด</p>
+  </section>
+
+<section id="Game" class="py-20 px-5 text-white">
+  <h2 class="text-3xl font-semibold mb-6">Game</h2>
+  <p class="mb-8">เกมที่เล่น</p>
+
+  <div class="game-logos">
+    <div class="tooltip">
+      <img src="Image/Roblox_Logo.jpg" alt="Roblox Logo" class="game-logo" />
+      <span class="tooltip-text">Roblox</span>
+    </div>
+    <div class="tooltip">
+      <img src="Image/Valorant_Logo.jpg" alt="Valorant Logo" class="game-logo" />
+      <span class="tooltip-text">Valorant</span>
+    </div>
+    <div class="tooltip">
+      <img src="Image/Pubg_Logo.jpg" alt="PUBG Logo" class="game-logo" />
+      <span class="tooltip-text">PUBG</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20 px-4 text-white" style="position: relative; text-align:center;">
+  <h2 class="text-3xl font-semibold mb-6">Discord</h2>
+
+  <img id="discordImage" src="Image/discord_gif.gif" alt="Discord GIF" class="w-40 h-auto mx-auto mb-6" style="cursor:pointer;" />
+
+  <p>
+  Discord Server:
+  <a href="https://discord.gg/k8zUpQkps4"
+     class="underline text-blue-400"
+     target="_blank"
+     rel="noopener noreferrer">
+    https://discord.gg/k8zUpQkps4
+  </a>
+</p>
+
+  <div id="tooltip" style="
+    position: fixed;
+    background: rgba(15, 15, 15, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+  ">Discord Tag: 0x966._</div>
+</section>
+
+<script>
+  const image = document.getElementById('discordImage');
+  const tooltip = document.getElementById('tooltip');
+
+  image.addEventListener('mouseenter', () => {
+    tooltip.style.opacity = '1';
+  });
+
+  image.addEventListener('mousemove', (e) => {
+    tooltip.style.left = e.clientX + 15 + 'px'; 
+    tooltip.style.top = e.clientY + 15 + 'px';
+  });
+
+  image.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = '0';
+  });
+</script>
+
+  <footer id="footer">
+    <p>Copyright © T3XTURE</p>
+    <p>Developed by กูเอง</p>
+    <p>สงวนลิขสิทธิ์ทุกประการ</p>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
