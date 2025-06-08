@@ -1,0 +1,255 @@
+body {
+  font-family: 'Outfit', 'Kanit', sans-serif;
+  margin: 0;
+
+  background: linear-gradient(
+    135deg,
+    #050505 0%, 
+    #101314 40%, 
+    #17181a 70%, 
+    #0f1213 100%
+  );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html {
+  scroll-padding-top: 80px; /* เว้นพื้นที่บน 80px เวลา scroll ไป anchor */
+  scroll-behavior: smooth;  /* smooth scroll (ถ้ายังไม่มี) */
+}
+
+nav {
+  position: fixed;
+  top: 15px;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  border-radius: 8px;
+  transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, gap 0.3s ease;
+  gap: 24px;
+}
+
+nav.scrolled .nav-inner {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  gap: 120px;
+  padding: 0 4rem;
+  height: 64px;
+}
+
+nav.collapsed .nav-inner {
+  padding: 0 0.5rem;
+  gap: 8px;
+  height: 48px;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  background-color: transparent !important;
+}
+
+.nav-link {
+  color: #ddd;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: center;
+  color: #c0c0c0;
+}
+
+#home h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+
+  background: linear-gradient(90deg, #f0f0f0, #d4d4d4, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #fff;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+#home p {
+  font-size: 1.125rem;
+  color: #d0d0d0;
+}
+
+#Game, #contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  text-align: center;
+  color: white;
+  padding: 5rem 1rem;
+}
+
+#discordImage {
+  position: relative;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#footer {
+  bottom: 0;
+  height: 180px;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 0.9);
+  color: #bbb;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  font-family: 'Outfit', 'Kanit', sans-serif;
+  user-select: none;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.7);
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer p {
+  margin: 2px 0;
+}
+
+#Game {
+  padding-top: 200px;    /* เว้นที่ว่างบนเยอะขึ้น */
+  margin-top: -80px;     /* ลบ margin บน เพื่อให้ตำแหน่งที่เลื่อนลงมาถูกต้อง */
+  /* ส่วนอื่นๆ ตามที่คุณมี */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  text-align: center;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.game-logos {
+  display: flex;
+  justify-content: center;  /* จัดกึ่งกลางแนวนอน */
+  gap: 40px;                /* เว้นระยะห่างรูปแต่ละรูป */
+  flex-wrap: wrap;          /* ถ้าหน้าจอเล็ก ให้รูปไหลลงบรรทัดใหม่ */
+}
+
+/* รูปแต่ละรูป */
+.game-logo {
+  width: 120px;             /* ปรับขนาดตามชอบ */
+  height: auto;
+  border-radius: 12px;      /* ขอบโค้งนิดหน่อย */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* เวลาชี้เมาส์ ให้รูปขยายเล็กน้อย */
+.game-logo:hover {
+  transform: scale(1.1);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgba(32, 34, 37, 0.9); /* โทนสีเหมือน Discord */
+  color: #fff;
+  text-align: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  /* ตำแหน่ง */
+  position: absolute;
+  bottom: 125%;  /* โผล่เหนือรูป */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none; /* เพื่อไม่ให้บังการคลิก */
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Arrow (ลูกศรชี้ tooltip) */
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;  /* ตรงขอบล่าง tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(32, 34, 37, 0.9) transparent transparent transparent;
+}
+
+/* แสดง tooltip เมื่อ hover */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
